@@ -1,9 +1,26 @@
 import { AxiosInstance } from 'axios';
 import { Property } from 'kefir';
 
-export function mkClient(clientId: string): AxiosInstance;
+//
 
-export default mkClient;
+interface Arity1Fn<A, R> {
+  (a: A): R;
+}
+
+interface Arity2Fn<A, B, R> {
+  (a: A, b: B): R;
+}
+
+interface CurriedFn2<A, B, R> {
+  (a: A): (b: B) => R;
+  (a: A, b: B): R;
+}
+
+interface CurriedFn3<A, B, C, R> {
+  (a: A): (b: B) => CurriedFn2<B, C, R>;
+  (a: A, b: B): (c: C) => R;
+  (a: A, b: B, c: C): R;
+}
 
 //
 
@@ -61,4 +78,13 @@ export interface Video {
 
 //
 
-export function videos(id: string, client: AxiosInstance): Property<VideoResponse, never>;
+export function mkClient(clientId: string): AxiosInstance;
+
+export default mkClient;
+
+//
+
+export namespace API {
+  export function videos(id: string): (client: AxiosInstance) => Property<VideoResponse, never>;
+  export function videos(id: string, client: AxiosInstance): Property<VideoResponse, never>;
+}
