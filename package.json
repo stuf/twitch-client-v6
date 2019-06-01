@@ -31,7 +31,9 @@
   ],
   "dependencies": {
     "axios": "^0.18.0",
-    "kefir": "^3.8.6"
+    "infestines": "^0.4.11",
+    "kefir": "^3.8.6",
+    "partial.lenses": "^14.17.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
