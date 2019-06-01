@@ -1,0 +1,27 @@
+{
+  "name": "twitch-client-v6",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "author": "Stefan Rimaila <stefan@rimaila.fi>",
+  "license": "MIT",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "babel lib/ -d dist/ --source-maps",
+    "watch": "npm run build -- --watch",
+    "prepublish": "npm run build"
+  },
+  "files": [
+    "dist/",
+    "lib/"
+  ],
+  "dependencies": {
+    "axios": "^0.18.0",
+    "kefir": "^3.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@types/kefir": "^3.8.2"
+  }
+}
